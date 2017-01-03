@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -15,7 +16,7 @@ namespace LowLevelDesign.Send2Procmon
         public static void Main(string[] args)
         {
             if (ShouldIPrintHelpAndExit(args)) {
-                PrintHelp();                
+                PrintHelp();
                 return;
             }
 
@@ -34,8 +35,7 @@ namespace LowLevelDesign.Send2Procmon
                 foreach (var message in messages) {
                     SplitMessagesIfNecessaryAndSendThemToProcmon(hProcmonDevice, message);
                 }
-            }
-            finally {
+            } finally {
                 hProcmonDevice.Dispose();
             }
         }
@@ -63,7 +63,7 @@ namespace LowLevelDesign.Send2Procmon
         {
             string[] messages = args;
             if (args.Length == 0) {
-                if (Console.In.Peek() == -1) {
+                if (!IsPipedInput()) {
                     return new string[0];
                 }
                 var l = new List<string>();
@@ -74,6 +74,16 @@ namespace LowLevelDesign.Send2Procmon
                 messages = l.ToArray();
             }
             return messages;
+        }
+
+        private static bool IsPipedInput()
+        {
+            try {
+                bool isKey = Console.KeyAvailable;
+                return false;
+            } catch {
+                return true;
+            }
         }
 
         private static void SplitMessagesIfNecessaryAndSendThemToProcmon(SafeFileHandle hProcmonDevice, string message)
@@ -97,7 +107,7 @@ namespace LowLevelDesign.Send2Procmon
         {
             Debug.Assert(message.Length <= MaxSingleMessageLength);
             uint bytesReturned = 0;
-            if (!NativeMethods.DeviceIoControl(hProcmonDevice, IoCtlCode, message, (uint)(message.Length*2), null, 0u,
+            if (!NativeMethods.DeviceIoControl(hProcmonDevice, IoCtlCode, message, (uint)(message.Length * 2), null, 0u,
                 ref bytesReturned, IntPtr.Zero)) {
                 int err = Marshal.GetLastWin32Error();
                 if (err == 0x57) {
