@@ -1,14 +1,13 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Send2Procmon")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Provides interface to send custom messages to ProcMon.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("LowLevelDesign")]
+[assembly: AssemblyCompany("Sebastian Solnica (@lowleveldesign)")]
 [assembly: AssemblyProduct("Send2Procmon")]
 [assembly: AssemblyCopyright("Copyright © Sebastian Solnica 2017")]
 [assembly: AssemblyTrademark("")]

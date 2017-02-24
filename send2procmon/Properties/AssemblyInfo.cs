@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("send2procmon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("LowLevelDesign")]
+[assembly: AssemblyCompany("Sebastian Solnica (@lowleveldesign)")]
 [assembly: AssemblyProduct("send2procmon")]
 [assembly: AssemblyCopyright("Copyright © Sebastian Solnica 2017")]
 [assembly: AssemblyTrademark("")]

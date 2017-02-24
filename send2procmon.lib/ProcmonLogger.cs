@@ -22,7 +22,7 @@ namespace LowLevelDesign.Send2Procmon
         /// </exception>
         public ProcmonLogger()
         {
-            var hProcmonDevice = NativeMethods.CreateFile(
+            hProcmonDevice = NativeMethods.CreateFile(
                 @"\\.\Global\ProcmonDebugLogger", NativeMethods.FileAccess.Write | NativeMethods.FileAccess.Read,
                 NativeMethods.FileShare.Write, IntPtr.Zero, NativeMethods.CreationDisposition.OpenExisting,
                 NativeMethods.FileAttributes.Normal, IntPtr.Zero);

@@ -15,3 +15,7 @@ will generate output as follows:
 
 ![output2](screenshot2.png)
 
+## Nuget package
+
+A [Nuget package](https://www.nuget.org/packages/Send2Procmon/) is available.
+
