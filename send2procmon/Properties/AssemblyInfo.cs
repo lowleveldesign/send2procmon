@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("send2procmon")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Sends messages to Procmon.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sebastian Solnica (@lowleveldesign)")]
 [assembly: AssemblyProduct("send2procmon")]
